@@ -28,6 +28,8 @@ trait HasOptions
             $options = $options->toArray();
         }
 
+        $options = $options ? $options : [];
+
         return $options;
     }
 

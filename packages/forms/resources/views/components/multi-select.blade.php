@@ -22,7 +22,7 @@
             },
             isAutofocused: {{ $isAutofocused() ? 'true' : 'false' }},
             hasDynamicOptions: {{ $hasDynamicOptions() ? 'true' : 'false' }},
-            options: {{ json_encode($getOptions()) }},
+            options: {{ $hasDynamicOptions()? '[]': json_encode($getOptions()) }},
             state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }},
         })"
         {!! ($id = $getId()) ? "id=\"{$id}\"" : null !!}
